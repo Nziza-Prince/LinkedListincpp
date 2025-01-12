@@ -103,7 +103,23 @@ class LinkedList{
             temp->next = temp->next->next;
             delete nodeToDelete;
         }
+    int search(int value){
+      if(!head){
+        return -1;
+      }
+      Node* temp = head;
+      int position = 1;
 
+      while(temp){
+        if(temp->data == value){
+        return position;
+
+        };
+      temp=temp->next;
+      position++;
+      }
+      return -1;
+   }
         void display(){
              if(!head){
                 cout << "Linked List is empty"<<endl;
@@ -134,20 +150,27 @@ int main() {
     cout << "Linked list after insertions: ";
     list1.display();
 
-    // Delete element from the beginning
-    list1.deleteFromBeginning();
-    cout << "Linked list after deleting from beginning: ";
-    list1.display();
+    // // Delete element from the beginning
+    // list1.deleteFromBeginning();
+    // cout << "Linked list after deleting from beginning: ";
+    // list1.display();
 
-    // Delete element from the end
-    list1.deleteFromEnd();
-    cout << "Linked list after deleting from end: ";
-    list1.display();
+    // // Delete element from the end
+    // list1.deleteFromEnd();
+    // cout << "Linked list after deleting from end: ";
+    // list1.display();
 
-    // Delete element from a specific position
-    list1.deleteFromPosition(2);
-    cout << "Linked list after deleting from position 2: ";
-    list1.display();
-
+    // // Delete element from a specific position
+    // list1.deleteFromPosition(2);
+    // cout << "Linked list after deleting from position 2: ";
+    // list1.display();
+    int target = 51;
+    int pos = list1.search(target);
+    if(pos != -1){
+        cout << "Element "<< target <<" found at position: "<< pos << endl;
+    }
+    else{
+       cout << "Element " << target << " not found in the list" << endl;
+    }
     return 0;
 }
